@@ -6,13 +6,10 @@ namespace part1
     {
         static void Main(string[] args)
         {
-            Substrings subs = new Substrings();
-            subs.Calculate("aybabtu", "bab");
-            subs.Calculate("aaaaa", "aa");
-            subs.Calculate("monkey", "banana");
-            Console.WriteLine(subs.Calculate("aybabtu", "bab"));
-            Console.WriteLine(subs.Calculate("aaaaa", "aa"));
-            Console.WriteLine(subs.Calculate("monkey", "banana"));
+            Tables t = new Tables();
+            Console.WriteLine(t.Calculate(new int[] { 1, 2, 3, 2 })); // 18
+            Console.WriteLine(t.Calculate(new int[] { 5 })); // 5
+            Console.WriteLine(t.Calculate(new int[] { 4, 2, 9, 1, 9, 2, 5 })); // 323
         }
     }
 }
