@@ -45,13 +45,13 @@ namespace part1
         A general formula for this one: a_2n+1 = a_n * 10 + 3, n = 1,2,3,... for even terms in the sequence and
         a_2n+2 = a_n * 10 + 7, for n = 1,2,3,... for odd terms in the sequence.
         
-        In the exercise we have an interval between (a,b). The idea is to first loop through the interval (0,b)
-        and find out how many luckynumbers there are in the interval. And then do the same thing for interval(0,a)
-        Then substract the amount of luckynumbers in int (0,a) from (0,b) to get the total amount of 
+        In the exercise we have an interval between (a,b). The idea is to first loop through the interval (1,b)
+        and find out how many luckynumbers there are in the interval. And then do the same thing for interval(1,a)
+        Then substract the amount of luckynumbers in int (1,a) from (1,b) to get the total amount of 
         luckynumbers in interval (a,b)
 
-        I was thinking of doing this with an for-loop. Now the tricky part is getting the recursion formula
-        into the for-loop. the program should add 1 (luckyNumbers++;) each time the loop hit a value on the 
+        I was thinking of doing this with a while-loop. Now the tricky part is getting the recursion formula
+        into the while-loop. the program should add 1 (luckyNumbers++;) each time the loop hit a value on the 
         recursion formula. And that way the luckynumbers are counted in an interval.
 
 
@@ -65,7 +65,7 @@ namespace part1
             List<int> aluckyNumbers = new List<int>(); // luckynumber list for (1,a)
             List<int> bluckyNumbers = new List<int>(); // luckynumber list for (1,b)
             // did not understand this part where the .Add(3) and .Add(7) should have been added.
-            if (a < 3 && b > 3)
+            if (a < 3 && b < 3)
             {
 
                 return 0;
@@ -93,6 +93,8 @@ namespace part1
                 i + 1 = 10 * i + 3;
                 i + 2 = 10 * i + 7;
 
+
+
                 // breaking the loop if i+1 term or i+2 term is too big
                 if (i + 1 > a)
                 {
@@ -102,6 +104,12 @@ namespace part1
                 {
                     break;
                 }
+
+                // adding the luckynumbers to the list 33 and 37 to the list.
+                aluckyNumbers.Add(i + 1);
+                aluckyNumbers.Add(i + 2);
+
+
                 i++;
 
 
@@ -109,7 +117,7 @@ namespace part1
             // return the counts of the luckynumbers in interval(1,a)
             return aluckyNumbers.Count;
 
-            
+
             // doing the same while-loop for interval (1,b)
             int j = 0;
             while (true)
@@ -128,6 +136,11 @@ namespace part1
                 {
                     break;
                 }
+
+                // adding the luckynumbers to the list 33 and 37 to the list.
+                bluckyNumbers.Add(j + 1);
+                bluckyNumbers.Add(j + 2);
+
                 j++;
 
 
