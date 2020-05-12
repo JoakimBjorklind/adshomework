@@ -72,7 +72,7 @@ namespace part1
             }
             if (a >= 3 && b < 7)
             {
-                aluckyNumbers.Add(3);
+                
                 return 1;
             }
             if (a >= 3 && b <= 7)
