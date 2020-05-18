@@ -6,7 +6,31 @@ namespace part2
    {
        public int Calculate(int[] t)
        {
-           return 0;
+          // set the longest rep. to 0 in beginning, could also be one.
+          int longestRepetion = 0;
+          int repetion = 1;
+
+          for (int i = 0; i < t.Length -1; i++)
+          {
+             // calculating the current longest repetition
+             if (t[i] == t[i+1])
+             {
+                repetion++;
+             }
+             else
+             {
+                repetion = 1;
+             }
+             // this gives the biggest repetition on the whole sequence
+             if ( repetion > longestRepetion)
+             {
+                longestRepetion = repetion;
+             }
+              
+          }
+          
+          return longestRepetion;
+
        }
    } 
 }
