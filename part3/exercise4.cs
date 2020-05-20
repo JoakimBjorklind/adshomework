@@ -6,6 +6,7 @@ namespace part3
     {
         public bool Find(int[] t, int x)
         {
+            return false;
 
         }
 

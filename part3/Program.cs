@@ -6,6 +6,9 @@ namespace part3
     {
         static void Main(string[] args)
         {
+            PrintHello printHello = new PrintHello();
+            printHello.Hello(5);
+            
             /*
             SmallestDifference s = new SmallestDifference();
             Console.WriteLine(s.Calculate(new int[] { 4, 1, 8, 5 })); // 1
