@@ -6,7 +6,8 @@ namespace part3
     {
         static void Main(string[] args)
         {
-            
+
+            /*
             PrintHello printHello = new PrintHello();
             printHello.Hello(5);
             
@@ -21,15 +22,15 @@ namespace part3
             Console.WriteLine();
             
 
-            /*
+            */
             Sorting s = new Sorting();
-            int[] sortMe = Randomizer(100);
+            int[] sortMe = Randomizer(10000);
             int[] sortMeLarge = Randomizer(1000000);
             s.QuickSort(sortMe);
             s.MergeSort(sortMe);
             s.QuickSort(sortMeLarge);
             s.MergeSort(sortMeLarge);
-            */
+            /*
             
 
             
@@ -53,7 +54,8 @@ namespace part3
             {
                 Console.Write(i + " ");  // 2 1 3 5 4
             }
-            
+            */
+
 
 
         }
