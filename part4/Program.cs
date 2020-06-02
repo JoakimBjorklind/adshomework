@@ -7,6 +7,7 @@ namespace part4
     {
         static void Main(string[] args)
         {
+            /*
             LinkedList myLinks = new LinkedList();
             myLinks.AddLast(1);
             myLinks.AddFirst(2);
@@ -46,8 +47,9 @@ namespace part4
             */
             Console.WriteLine();
             
+            
             BinarySearchTree bs = new BinarySearchTree();
-            bs.Add(5); // Becomes your root
+            /*bs.Add(5); // Becomes your root
             bs.Add(4); // Goes to the left
             bs.Add(6); // Goes to the right
             Console.WriteLine(bs.Height()); // 1
@@ -55,6 +57,9 @@ namespace part4
             bs.Add(1);
             bs.Add(7);
             Console.WriteLine(bs.Height()); // 3
+            */
+            RandomNodes(bs);
+            Console.WriteLine(bs.Height());
             
 
         }
