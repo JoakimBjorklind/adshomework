@@ -7,28 +7,28 @@ Which algorithm can be used for the following tasks:
 
 1.) Is graph connected?
 
-Answer:
+Answer: Both
 
 2.) Is there a path from node a to node b?
 
-Answer:
+Answer: Both
 
 3.) How long is the shortest path from node a to node b?
 
-Answer:
+Answer: BFS
 
 4.) How many connected components the graph has?
 
-Answer:
+Answer: Both
 
 5.) Is there a cycle in the graph?
 
-Answer:
+Answer: DFS
 
 6.) Is the graph a tree?
 
-Answer:
+Answer: Both
 
 7.) What is the node furthest away from node x?
 
-Answer:
+Answer: BFS
