@@ -16,9 +16,10 @@ namespace part6
 
         }
 
-        List<int> Create(int x, int y)
+        /*public List<int> Create(int x, int y)
         {
+            List<int> list = new List<int>();
 
-        }
+        }*/
     }
 }
