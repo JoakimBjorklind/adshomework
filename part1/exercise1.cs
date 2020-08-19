@@ -6,6 +6,7 @@ namespace part1
     {
         public int Sum(int x)
         {
+           // this works for all integers x (both negative and positive), bcs of the absolute value!
            x = Math.Abs(x);
            int sum = 0;
            while (x != 0)

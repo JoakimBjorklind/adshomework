@@ -7,27 +7,34 @@ namespace part1
     {
         public int Calculate(string a, string b)
         {
-            int P = b.Length;
             int T = a.Length;
+            int P = b.Length;
             int sum = 0;
             for (int i = 0; i <= T - P; i++)
             {
-                int j;
-                for (j = 0; j < P; j++)
+                if (a[i] == b[0])
                 {
-                    if (a[i+j] != b[j])
+                    for (int j = 0; j < P; j++)
                     {
-                        break;
+                        if (a[i + j] == b[j])
+                        {
+                            if (j == P - 1)
+                            {
+                                sum++;
+                                break;
+                            }
+                        }
                     }
                 }
-                if (j ==P)
-                {
-                    sum++;
-                    j = 0;
-                }
+
+
+
             }
             return sum;
-            
+
+            // Alternative solution !
+            // return Regex.Matches(a, @"(?=" + b + ")").Count;
+
         }
     }
 }
