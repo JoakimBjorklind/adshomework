@@ -13,11 +13,12 @@ namespace part2
 
             DateTime start1 = DateTime.Now;
 
-            for(int i = 0; i < n.Length -1; i++)
+            for(int i = 0; i < n.Length; i++)
             {
-                for(int j = 1; j < n.Length -1; j++)
+                for(int j = 1; j < n.Length; j++)
                 {
-                    if (n[i].ToString() == "0" && n[j].ToString() == "1")
+                    // own solution inside if()--> n[i].ToString() == "0" && n[j].ToString() == "1"
+                    if (n[i] == n[j])
                     {
                         counter = counter + 1;
                     }
@@ -37,9 +38,10 @@ namespace part2
 
             DateTime start2 = DateTime.Now;
 
-            for (int i = 0; i < n.Length -1; i++)
+            for (int i = 0; i < n.Length; i++)
             {
-                if(n[i].ToString() == "0")
+                // own solution inside if()--> n[i].ToString() == "0"
+                if(n[i] == 0)
                 {
                     zeros = zeros + 1;
                 }
