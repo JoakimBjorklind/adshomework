@@ -6,6 +6,8 @@ namespace part3
     {
         public int[] Create(int n, int k)
         {
+           /*
+           // own solution below
            int [] array = new int [n];
 
            for (int i = 0; i < n; i++)
@@ -33,6 +35,49 @@ namespace part3
 
            }
            return array;
+           */
+
+           int maxInversions = (n * (n - 1)) / 2;
+
+           if (k > maxInversions)
+           {
+               k = maxInversions;
+           }
+
+           // Create new result array
+           int[] result = new int[n];
+
+           for (int i = 1; i <= n; i++)
+           {
+               result[i - 1] = i;
+           }
+
+           // how many inversions have been done
+           int inversions = 0;
+           // get last index
+           int latest = (n - 1);
+           // lowest index visited
+           int lowest = 0;
+
+           while (inversions < k)
+           {
+               // swap latest and the one before it
+               int temp = result[latest];
+               result[latest] = result[latest - 1];
+               result[latest - 1] = temp;
+
+               inversions++;
+               latest--;
+
+               if (latest == lowest)
+               {
+                   latest = (n - 1);
+                   lowest++;
+               }
+           }
+           return result;
+
+
 
 
 

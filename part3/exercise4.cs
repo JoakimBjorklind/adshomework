@@ -8,26 +8,26 @@ namespace part3
         {
             Array.Sort(t);
             int a = 0;
-            int b = t.Length;
-            while(a <= b)
+            int b = t.Length -1;
+            while (a <= b)
             {
-                int k = (a+b)/2;
-                if (x==t[k])
+                int k = (a + b) / 2;
+                if (t[k] == x)
                 {
                     return true;
                 }
-                if (x < t[k])
+                if (t[k] < x)
                 {
-                    b = k-1;
+                    a = k + 1;
                 }
-                if (x > t[k])
+                if (t[k] > x)
                 {
-                    a = k+1;
+                    b = k - 1;
                 }
 
             }
 
-             return false;
+            return false;
         }
 
 

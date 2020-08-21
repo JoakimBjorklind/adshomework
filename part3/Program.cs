@@ -7,11 +7,12 @@ namespace part3
         static void Main(string[] args)
         {
 
-            /*
+            
             PrintHello printHello = new PrintHello();
             printHello.Hello(5);
             
             Console.WriteLine();
+            
             
             SmallestDifference s = new SmallestDifference();
             Console.WriteLine(s.Calculate(new int[] { 4, 1, 8, 5 })); // 1
@@ -21,19 +22,17 @@ namespace part3
             
             Console.WriteLine();
             
-
-            */
-            Sorting s = new Sorting();
+            
+            
+            Sorting sort = new Sorting();
             int[] sortMe = Randomizer(10000);
             int[] sortMeLarge = Randomizer(1000000);
-            s.QuickSort(sortMe);
-            s.MergeSort(sortMe);
-            s.QuickSort(sortMeLarge);
-            s.MergeSort(sortMeLarge);
-            /*
-            
+            sort.QuickSort(sortMe);
+            sort.MergeSort(sortMe);
+            sort.QuickSort(sortMeLarge);
+            sort.MergeSort(sortMeLarge);
 
-            
+            Console.WriteLine();
             
             BinarySearch b = new BinarySearch();
             Console.WriteLine(b.Find((new int[] { 4, 1, 8, 5 }), 2)); // false
@@ -46,6 +45,7 @@ namespace part3
             Console.WriteLine();
             
             
+            
 
             
             Inversions inv = new Inversions();
@@ -54,7 +54,7 @@ namespace part3
             {
                 Console.Write(i + " ");  // 2 1 3 5 4
             }
-            */
+            
 
 
 
