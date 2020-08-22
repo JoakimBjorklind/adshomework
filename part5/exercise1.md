@@ -23,7 +23,7 @@ Answer: Both
 
 5.) Is there a cycle in the graph?
 
-Answer: DFS
+Answer: Both
 
 6.) Is the graph a tree?
 

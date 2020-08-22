@@ -8,13 +8,13 @@ namespace part5
         public int n;
         public List<int>[] graph;
 
-        
+
 
         public Components(int n)
         {
             this.n = n;
             this.graph = new List<int>[n + 1];
-            
+
 
             for (int i = 1; i <= n; i++)
             {
@@ -26,12 +26,12 @@ namespace part5
         {
             this.graph[a].Add(b);
             this.graph[b].Add(a);
-
-
         }
         // Found this way of having a helper method on the internet
         // on the site geeksforgeeks.org/connected-components-in-an-undirected-graph/
         // used this method to get the Calculate method to work!
+        /*
+        // some helper method from Internet below, works as an alternative solution
         public void DFS(int v, bool[] visited)
         {
             visited[v-1] = true;
@@ -43,37 +43,37 @@ namespace part5
                 }
             }
         }
+        */
+        void ConnectedComponents(int v, bool[] visited)
+        {
+            visited[v] = true;
+
+            foreach (int x in this.graph[v])
+            {
+                if (!visited[x])
+                {
+                    ConnectedComponents(x, visited);
+                }
+            }
+        }
+
 
         public int Calculate()
         {
             int sum = 0;
-            bool[] visited = new bool[n];
-            for(int v = 1; v<=n; v++)
+            bool[] visited = new bool[this.n + 1];
+            for (int v = 1; v <= this.n; v++)
             {
-                if(!visited[v-1])
+                if (!visited[v])
                 {
-                    DFS(v,visited);
+                    ConnectedComponents(v, visited);
                     sum++;
                 }
             }
             return sum;
 
         }
-        // Some pseudo that Heikki gave, unfortunately no help!
-        /*public int Calculate()
-        {
-            int sum = 0;
-            bool[] visited = new bool[n];
-            foreach (int i in graph[n])
-            {
-                if (!visited[n])
-                {
-                    sum++;
-                }
-            }
-            return sum;
-        }*/
 
-        
+
     }
 }

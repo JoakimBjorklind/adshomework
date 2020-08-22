@@ -5,12 +5,12 @@ namespace part5
 {
     public class Communication
     {
-        public int n;
+        public List<int> visited;
         public List<int>[] graph;
 
         public Communication(int n)
         {
-            this.n = n;
+            
             this.graph = new List<int>[n + 1];
 
             for (int i = 1; i <= n; i++)
@@ -25,6 +25,9 @@ namespace part5
             this.graph[b].Add(a);
 
         }
+        /*
+        // own solution of a helper method below found from the Internet
+
         // Used the same helper method as in exercise 3 
         // Used it in the Examine method 
         public void DFS(int x, bool[] visited)
@@ -38,14 +41,31 @@ namespace part5
                 }
             }
         }
+        */
         public bool Examine(int x, int y)
         {
-            bool[] visited = new bool[n];
+            this.visited = new List<int>();
 
-            DFS(x, visited);
+            Calculate(x);
 
-            return visited[y-1];
+            return this.visited.Contains(y);
         }
+
+        public void Calculate(int x)
+        {
+            if (this.visited.Contains(x))
+            {
+                return;
+            }
+            this.visited.Add(x);
+            foreach (int neighbor in this.graph[x])
+            {
+                Calculate(neighbor);
+            }
+        }
+        
+
+
 
         
     }

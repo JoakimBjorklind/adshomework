@@ -5,7 +5,7 @@ namespace part5
 {
     public class Connectivity
     {
-        public int n;
+        
         public List<int>[] graph;
 
         public List<int> visitedList;
@@ -14,7 +14,7 @@ namespace part5
 
         public Connectivity(int n)
         {
-            this.n = n;
+            
             this.graph = new List<int>[n + 1];
             this.visitedList = new List<int>();
 
