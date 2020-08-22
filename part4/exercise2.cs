@@ -21,6 +21,16 @@ namespace part4
                return 2 * Last((n-1) / 2) + 1;
            }
 
+           /*
+           // own solution below with the mathematical formula, short and only 4 lines of code!!
+           int p = 1;
+           while (p <= n)
+           {
+               p *= 2;
+           }
+           return (2 * n) - p + 1;
+           */
+
         }
     }
 

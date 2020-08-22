@@ -10,8 +10,8 @@ namespace part4
         private Node tail;
         public LinkedList()
         {
-          this.head = null;
-          this.tail = null;
+            this.head = null;
+            this.tail = null;
         }
         public void AddFirst(int n)
         {
@@ -33,7 +33,7 @@ namespace part4
 
         public void AddLast(int n)
         {
-            Node node = new Node(n, null, this.tail);
+            Node node = new Node(n, null, null);
 
             if (this.tail == null)
             {
@@ -49,7 +49,7 @@ namespace part4
 
 
         }
-        
+
         public void RemoveFirst()
         {
             this.head = this.head.next;
@@ -63,10 +63,12 @@ namespace part4
             this.tail.next = null;
 
         }
-        
+
 
         public int GetNode(int x)
         {
+            /*
+            // own version below
             Node current = this.head;
             int count = 0;
             
@@ -81,10 +83,16 @@ namespace part4
                 current = current.next;
             }
             return 0;
-
+            */
+            Node current = this.head;
+            for (int i = 0; i < x; i++)
+            {
+                current = current.next;
+            }
+            return current.value;
 
         }
-        
+
 
         public override string ToString()
         {
@@ -98,7 +106,7 @@ namespace part4
                 current = current.next;
             }
             return result;
-        } 
+        }
 
     }
 

@@ -8,6 +8,8 @@ using System.Collections;
 
 namespace part4
 {
+    /*
+    // own version of solution of exercise 5 below
     // found help on how to solve this exercise on the internet.
     // used the site csharpstar.com/csharp-program-to-implement-binary-search-tree/
     // to get starting with this exercise.
@@ -112,4 +114,5 @@ namespace part4
             
         }
     }
+    */
 }

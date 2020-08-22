@@ -5,31 +5,32 @@ namespace part4
 {
     public class SmallestDistance
     {
-        List<int> numbers = new List<int>();
+        private List<int> numbers = new List<int>();
         public void Add(int x)
         {
             
-            numbers.Add(x);
+            this.numbers.Add(x);
 
         }
 
         public int Calculate()
         {
-            numbers.Sort();
-
-            int difference = int.MaxValue;
+            this.numbers.Sort();
+            int diff = this.numbers[1] - this.numbers[0];
+            // my version of the above code line --> int difference = int.MaxValue;
 
             for (int i = 1; i != numbers.Count; i++)
+            // i != this.numbers.Count is the same as i < this.numbers.Count
             {
-                
+                int currDiff = this.numbers[i] - this.numbers[i - 1];
+                if (currDiff < diff)
                 {
-                    if (((numbers[i] - numbers[i-1]) < difference))
-                    {
-                        difference = numbers[i] - numbers[i-1];
-                    }
+                    diff = currDiff;
                 }
+                
+               
             }
-            return difference;
+            return diff;
 
         }
     }
