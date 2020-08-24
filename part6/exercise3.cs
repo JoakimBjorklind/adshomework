@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace part6
 {
+    /*
+    // own solution below
     public class Edge1
     {
         public int beginning, end, weight;
@@ -54,102 +56,119 @@ namespace part6
 
         public int Calculate(int x, int y)
         {
-            {
-                int[,] distance = new int[n+1, n+1];
-                for (int i = 0; i < n+1; i++)
-                {
-                    for (int j = 0; j < n+1; j++)
-                    {
-                        distance[i, j] = adjMatrix[i, j];
+            
+            
 
-                        if (adjMatrix[i, j] != int.MaxValue && i != j)
-                        {
-                            parent[i, j] = i;
-                        }
-                        else
-                        {
-                            parent[i, j] = -1;
-                        }
+            int[,] distance = new int[n + 1, n + 1];
+            for (int i = 0; i < n + 1; i++)
+            {
+                for (int j = 0; j < n + 1; j++)
+                {
+                    distance[i, j] = adjMatrix[i, j];
+
+                    if (adjMatrix[i, j] != int.MaxValue && i != j)
+                    {
+                        parent[i, j] = i;
+                    }
+                    else
+                    {
+                        parent[i, j] = -1;
                     }
                 }
-
-
-
-                for (int k = 1; k < n+1; k++)
-                {
-                    for (int i = 1; i < n+1; i++)
-                    {
-                        for (int j = 1; j < n+1; j++)
-                        {
-                            if (distance[i, k] == int.MaxValue || distance[k, j] == int.MaxValue)
-                            {
-                                continue;
-                            }
-                            if (distance[i, j] > distance[i, k] + distance[k, j])
-                            {
-                                distance[i, j] = distance[i, k] + distance[k, j];
-                                parent[i, j] = parent[k, j];
-                            }
-                        }
-                    }
-                }
-                //return distance[x, y];
-                if (distance[x, y] == int.MaxValue)
-                {
-                    return -1;
-                }
-                else
-                {
-                    return distance[x, y];
-                }
-
-            }
-            /*public int n;
-            public List<Edge1> edges;
-            public FloydWarshall(int n)
-            {
-                this.n = n;
-                this.edges = new List<Edge1>();
-
             }
 
-            public void AddRoad(int a, int b, int d)
+
+
+            for (int k = 1; k < n + 1; k++)
             {
-                this.edges.Add(new Edge1(a, b, d));
+                for (int i = 1; i < n + 1; i++)
+                {
+                    for (int j = 1; j < n + 1; j++)
+                    {
+                        if (distance[i, k] == int.MaxValue || distance[k, j] == int.MaxValue)
+                        {
+                            continue;
+                        }
+                        if (distance[i, j] > distance[i, k] + distance[k, j])
+                        {
+                            distance[i, j] = distance[i, k] + distance[k, j];
+                            parent[i, j] = parent[k, j];
+                        }
+                    }
+                }
+            }
+            //return distance[x, y];
+            if (distance[x, y] == int.MaxValue)
+            {
+                return -1;
+            }
+            else
+            {
+                return distance[x, y];
+            }
+            
+
+
+
+
+
+
+        }
+    */
+
+    public class FloydWarshall
+    {
+        private int n;
+        private int[,] distance;
+        private int INF = 999999;
+        private bool calculated = false;
+
+        public FloydWarshall(int n)
+        {
+            this.n = n;
+            // initiate distance to be INF for all
+            this.distance = new int[n + 1, n + 1];
+            for (int i = 1; i <= n; i++)
+            {
+                for (int j = 1; j <= n; j++)
+                {
+                    this.distance[i, j] = INF;
+                }
+            }
+        }
+
+        public void AddRoad(int a, int b, int d)
+        {
+            this.distance[a, b] = d;
+            this.distance[b, a] = d;
+            this.calculated = false;
+        }
+
+        public int Calculate(int x, int y)
+        {
+            if (this.calculated == false)
+            {
+                for (int k = 1; k <= this.n; k++)
+                {
+                    for (int i = 1; i <= this.n; i++)
+                    {
+                        for (int j = 1; j <= this.n; j++)
+                        {
+                            this.distance[i, j] = Math.Min(this.distance[i, j], (this.distance[i, k] + this.distance[k, j]));
+                        }
+                    }
+                }
+                this.calculated = true;
             }
 
-            public int Calculate(int x, int y)
+            if (this.distance[x, y] < INF)
             {
-
-                int[,] distance = new int[n + 1, n + 1];
-                for (int i = 0; i < n + 1; i++)
-                {
-                    for (int j = 0; j < n + 1; j++)
-                    {
-                        if (i == j)
-                        {
-                            distance[i, j] = 0;
-                        }
-                        else
-                        {
-                            distance[i, j] = int.MaxValue;
-                        }
-                    }
-                }
-                for (int k = 1; k < n + 1; k++)
-                {
-                    for (int i = 1; i < n + 1; i++)
-                    {
-                        for (int j = 1; j < n + 1; j++)
-                        {
-                            distance[i, j] = Math.Min(distance[i, j], distance[i, k] + distance[k, j]);
-                        }
-                    }
-                }
-                return distance[x, y];*/
-
-
-
+                return this.distance[x, y];
+            }
+            else
+            {
+                return -1;
+            }
         }
     }
 }

@@ -32,15 +32,18 @@ namespace part6
     {
         public int n;
 
-        public List<Edge> edges;
+
+        // below the 2 different ways of writing the constructor, 
+        List<Edge> edges = new List<Edge>();
+        // public List<Edge> edges;
 
         public BellmanFord(int n)
         {
             this.n = n;
-            this.edges = new List<Edge>();
+            //this.edges = new List<Edge>();
         }
 
-        
+
 
         public void AddRoad(int a, int b, int d)
         {
@@ -52,15 +55,16 @@ namespace part6
         public int Calculate(int x, int y)
         {
             int INF = 9999;
-            int[] distance = new int[n+1];
-            for (int i = 1; i < n+1; i++)
+            int[] distance = new int[this.n + 1];
+            for (int i = 1; i <= this.n; i++)
             {
                 distance[i] = INF;
-                
+
             }
+            // give starting point 'x' a distance of 0
             distance[x] = 0;
 
-            while(true)
+            while (true)
             {
                 bool change = false;
 
@@ -76,7 +80,7 @@ namespace part6
                     }
 
                 }
-                if (change == false)
+                if (!change)  // or change == false inside if-statement
                 {
                     break;
                 }
@@ -84,7 +88,7 @@ namespace part6
             }
             //return distance[y];
             // did not first get this to work, it gave the maxvalue 2147483647 instead of -1
-            
+
             if (distance[y] == INF)
             {
                 return -1;
@@ -95,7 +99,7 @@ namespace part6
             }
 
             //changed the maxValue to 9999 and it started working!!
-            
+
         }
     }
 }
